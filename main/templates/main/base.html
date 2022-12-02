@@ -1,17 +1,109 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Clientes</title>
+    
+    {% block titulo %}
+    <title>Página Inicial</title>
+    {% endblock %}
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/ifpr.css' %}" rel="stylesheet">
+
 </head>
 <body>
+
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-115 shadow">
+            
+
+                        
+
+            <div class="container">
+                
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Início
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cliente.index' %}">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                Cadastrar
+                            </a>
+                        </li>                        
+                </div>
+                
+            </div>
+                        
+        
+        </nav>
+        
+
+            
+
     <ul>
-        <li><a href="{%url 'home'%}"><td></td>Início</a></li>
-        <li><a href="{%url 'cliente.index'%}">Consulta e Cadastro</a></li>
+        
+        <div class="container">
+
+            
+            {% block content %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>
+                Bem vindo usuário!
+            </p>
+            <br>            
+            <p>
+                Ao Software de cadastro e consulta de clientes desenvolvido sob iniciativa da disciplina Projeto Integrador III da Universidade Virtual do Estado de São Paulo (UNIVESP), envolvendo os cursos de Ciência de Dados e Engenharia da Computação.
+            </p>
+            <br>
+            <p>
+                Orientações de uso:
+            </p>
+            <p>
+            --> Para Cadastrar um novo cliente ou consultar os dados de um cliente já cadastrado clique em "+ Cadastrar" no menu superior do seu navegador.
+            </p>
+            <br>
+            <p>
+            --> Para editar os dados de um cliente já cadastrado clique no botão "Editar" da seção "Ações" na página de Cadastro de Clientes.
+            </p>
+            <br>
+            <p>
+            --> Para excluir o registro de um cliente já cadastrado clique no botão "Excluir" da seção "Ações" na página de Cadastro e Consulta de Clientes.
+            </p>
+            <br>
+            <p>
+            --> Para consultar os dados de algum cliente já cadastrado utilize a caixa de busca por nome e clique no botão "Buscar" para realizar a pesquisa.
+            </p>
+            {% endblock content %}
+
+        </div>
+
     </ul>
-    {% block content %}
-    {% endblock content %}
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    
+    
 </body>
 </html>
